@@ -1,5 +1,6 @@
 package com.springboot.miaosha.controller;
 
+import com.springboot.miaosha.base.ResultBean;
 import com.springboot.miaosha.entity.User;
 import com.springboot.miaosha.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +24,13 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping("/getUserById")
-    public User getUserById(@RequestParam(name = "id") int id) {
+    public ResultBean getUserById(@RequestParam(name = "id") int id) {
         try {
             User user = userService.getUserById(id);
-            return user;
+            return ResultBean.success(user);
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return ResultBean.error("用戶查找失败,请稍后重试");
         }
     }
 }
