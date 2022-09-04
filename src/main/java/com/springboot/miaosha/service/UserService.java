@@ -1,5 +1,6 @@
 package com.springboot.miaosha.service;
 
+import com.springboot.miaosha.bean.UserBean;
 import com.springboot.miaosha.dao.UserMapper;
 import com.springboot.miaosha.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,5 +13,5 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public interface UserService {
 
-    User getUserById(int id) throws Exception;
+    UserBean getUserById(Integer id) throws Exception;
 }
